@@ -1,10 +1,26 @@
+import About from "./Components/About";
+import FacilityCards from "./Components/FacilityCards";
+import Header from "./Components/Header";
+import SlideShow from "./Components/SlideShow";
+import Courses from "./Components/Courses";
+import Achiewments from "./Components/Achiewments";
+import Staff from "./Components/Staff";
+import Footer from "./Components/Footer";
 
-import './App.css';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <h1 className='text-9xl font-bold text-green-500'>Hello world</h1>
+    <div className="bg-white ">
+      <Header />
+      <SlideShow />
+      <FacilityCards />
+      <About />
+      <Courses />
+      <Achiewments />
+      <Staff />
+      <Footer></Footer>
     </div>
   );
 }

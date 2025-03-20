@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "@fontsource/inter";
+@import "@fontsource/poppins";
+@import "@fontsource/roboto";
+@import "@fontsource/lato";
+:root {
+  --color-mint-500: oklch(0.72 0.11 178); /* Custom color */
+}
+body {
+  @apply bg-mint-500 text-white font-poppins; /* Apply globally */
+}
