@@ -18,8 +18,8 @@ const cards = [
 const Courses = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   return (
-    <div className=" mb-10 text-green-950">
-      <div className=" mt-20 flex  flex-col justify-center items-center">
+    <div className=" mb-10 ">
+      <div className=" mt-10 flex  flex-col justify-center items-center">
         <div className="text-center">
           <h2 className="text-xl font-bold ">OUR MAIN COURSES</h2>
           <p className="text-xs">
@@ -29,12 +29,12 @@ const Courses = () => {
         </div>
       </div>
 
-      <div className="w-full h-96 text-green-950 mt-5 flex justify-center items-center md:flex-row">
+      <div className="w-full h-96 mt-5 flex justify-center items-center md:flex-row">
         <button
           onClick={() => {
             setCurrentIndex((currentIndex - 1 + cards.length) % cards.length);
           }}
-          className="absolute  left-4 md:left-1/3 bg-lime-400 p-2 rounded-full w-7 h-7"
+          className="absolute  left-4 md:left-1/3 bg-gera p-2 rounded-full w-7 h-7"
         >
           <MdKeyboardArrowLeft className="text-sm" />
         </button>
@@ -59,7 +59,7 @@ const Courses = () => {
               regularly...
             </p>
           </div>
-          <button className="bg-green-950 text-lg  mt-1 text-white flex justify-center items-center border border-white w-32 h-8">
+          <button className="bg-purple-600 text-lg  mt-1 text-white flex justify-center items-center border rounded-md   w-32 h-10">
             Apply Now
           </button>
         </div>
@@ -68,7 +68,7 @@ const Courses = () => {
           onClick={() => {
             setCurrentIndex((currentIndex + 1) % cards.length);
           }}
-          className="absolute right-4 md:right-1/3 bg-lime-400 p-2 rounded-full w-7 h-7"
+          className="absolute right-4 md:right-1/3 bg-gera p-2 rounded-full w-7 h-7"
         >
           <MdKeyboardArrowRight className="text-sm" />
         </button>

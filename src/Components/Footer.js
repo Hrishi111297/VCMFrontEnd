@@ -10,7 +10,7 @@ import {
 const Footer = () => {
   return (
     <footer
-      className="bg-cover bg-center text-white"
+      className="bg-cover bg-center text-gera"
       style={{
         backgroundImage:
           "url(https://demo.smart-school.in/uploads/gallery/media/courseimg1.jpg)",

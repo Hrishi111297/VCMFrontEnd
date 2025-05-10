@@ -61,7 +61,7 @@ const Achievements = () => {
   return (
     <div
       id="achievements"
-      className="w-full bg-green-950 text-white flex flex-col justify-center items-center mt-5 p-4 md:flex-row md:items-start"
+      className="w-full bg-purple-600 text-white flex flex-col justify-center items-center mt-5 p-4 md:flex-row md:items-start"
     >
       {/* Left Section */}
       <div className="text-center md:w-1/2">
@@ -83,30 +83,30 @@ const Achievements = () => {
 
       {/* Right Section */}
       <div className="container mx-auto md:w-1/2">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-lime-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gera">
           {/* Card 1 */}
-          <div className="border-b border-lime-400 shadow-md text-center flex flex-col justify-center items-center p-4 transition-transform duration-1000 ease-in-out hover:scale-110">
+          <div className="border-b border-white shadow-md text-center flex flex-col justify-center items-center p-4 transition-transform duration-1000 ease-in-out hover:scale-110">
             <FaUserGraduate className="text-center text-2xl" />
             <p className="text-2xl font-bold p-5">{counts.teachers}</p>
             <h2 className="text-base font-semibold">Certified Teachers</h2>
           </div>
 
           {/* Card 2 */}
-          <div className="border-b border-lime-400 shadow-md text-center flex flex-col justify-center items-center p-4 transition-transform duration-1000 ease-in-out hover:scale-110">
+          <div className="border-b border-white shadow-md text-center flex flex-col justify-center items-center p-4 transition-transform duration-1000 ease-in-out hover:scale-110">
             <FaMedal className="text-center text-2xl" />
             <p className="text-2xl font-bold p-5">{counts.medals}</p>
             <h2 className="text-base font-semibold">Awards Won</h2>
           </div>
 
           {/* Card 3 */}
-          <div className="border-b border-lime-400 shadow-md text-center flex flex-col justify-center items-center p-4 transition-transform duration-1000 ease-in-out hover:scale-110">
+          <div className="border-b border-white shadow-md text-center flex flex-col justify-center items-center p-4 transition-transform duration-1000 ease-in-out hover:scale-110">
             <PiStudentBold className="text-center text-2xl" />
             <p className="text-2xl font-bold p-5">{counts.students}</p>
             <h2 className="text-base font-semibold">Students</h2>
           </div>
 
           {/* Card 4 */}
-          <div className="border-b border-lime-400 shadow-md text-center flex flex-col justify-center items-center p-4 transition-transform duration-1000 ease-in-out hover:scale-110">
+          <div className="border-b border-white shadow-md text-center flex flex-col justify-center items-center p-4 transition-transform duration-1000 ease-in-out hover:scale-110">
             <BsBuildingsFill className="text-center text-2xl" />
             <p className="text-2xl font-bold p-5">{counts.campuses}</p>
             <h2 className="text-base font-semibold">Student Campuses</h2>

@@ -22,12 +22,12 @@ const SlideShow = () => {
   }, []);
 
   return (
-    <div className="relative flex items-center bg-slate-500 w-full h-40 sm:h-60 md:h-80 lg:h-96 xl:h-[32rem]">
+    <div className="relative flex items-center  w-full sm:h-60 md:h-80 lg:h-96 xl:h-[32rem] pt-20 p-2  text-white">
       <button
-        onClick={() => {
+        onClick={() => {console.log("left")
           setCurrentIndex((currentIndex - 1 + images.length) % images.length);
         }}
-        className="absolute left-4 bg-lime-400 p-2 rounded-full w-7 h-7"
+        className="absolute left-4 bg-gera p-2 text-black rounded-full w-7 h-7 z-50"
       >
         <MdKeyboardArrowLeft className="text-sm" />
       </button>
@@ -40,7 +40,7 @@ const SlideShow = () => {
         onClick={() => {
           setCurrentIndex((currentIndex + 1) % images.length);
         }}
-        className="absolute right-4 bg-lime-400 p-2 rounded-full w-7 h-7"
+        className="absolute right-4 bg-gera text-black p-2 rounded-full w-7 h-7 z-50"
       >
         <MdKeyboardArrowRight className="text-sm" />
       </button>

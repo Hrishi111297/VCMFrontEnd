@@ -26,8 +26,8 @@ const staffs = [
 const Staff = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   return (
-    <div className=" mb-10 ">
-      <div className=" mt-20 flex  flex-col justify-center items-center">
+    <div className="mt-10">
+      <div className=" flex  flex-col justify-center items-center">
         <div className="text-center">
           <h2 className="text-xl font-bold ">OUR EXPERIENCED STAFFS</h2>
           <p className="text-xs">
@@ -37,19 +37,19 @@ const Staff = () => {
         </div>
       </div>
 
-      <div className="w-full text-green-950 mt-5 flex justify-center items-center md:flex-row ">
+      <div className="w-full flex justify-center items-center md:flex-row  ">
         <button
           onClick={() => {
             setCurrentIndex((currentIndex - 1 + staffs.length) % staffs.length);
           }}
-          className="absolute  left-4 md:left-1/3 bg-lime-400 p-2 rounded-full w-7 h-7"
+          className="absolute  left-8 md:left-1/3 bg-gera p-2 rounded-full w-7 h-7"
         >
           <MdKeyboardArrowLeft className="text-sm" />
         </button>
 
         <div
           key={staffs[`${currentIndex}`].id}
-          className="w-[90%] md:w-1/3 h-full bg-white pl-1   "
+          className="w-[90%] md:w-1/3 h-full p-10 md:p-20"
         >
           <div className="w-full">
             <img
@@ -59,7 +59,7 @@ const Staff = () => {
             />
           </div>
           <div className="w-full">
-            <h1 className="text-center text-xl text-green-950 font-semibold">
+            <h1 className="text-center text-xl  font-semibold mt-2">
               {staffs[`${currentIndex}`].name}
             </h1>
           </div>
@@ -69,7 +69,7 @@ const Staff = () => {
           onClick={() => {
             setCurrentIndex((currentIndex + 1) % staffs.length);
           }}
-          className="absolute right-4 md:right-1/3 bg-lime-400 p-2 rounded-full w-7 h-7"
+          className="absolute right-8 md:right-1/3 bg-gera p-2 rounded-full w-7 h-7"
         >
           <MdKeyboardArrowRight className="text-sm" />
         </button>

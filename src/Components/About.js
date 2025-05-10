@@ -3,9 +3,9 @@ import Accordion from "./Accordian";
 
 const About = () => {
   return (
-    <div className="relative top-5 p-4 text-green-950  pb-10">
-      <div className=" flex  flex-col justify-center items-center">
-        <div className="text-center">
+    <div className="mt-10 p-4   pb-10">
+      <div className=" flex  flex-col justify-center items-center ">
+        <div className="text-center ">
           <h2 className="text-xl font-bold ">Shree Vidya classes</h2>
           <p className="text-xs">
             Tmply dummy text of the printing and typesetting industry. Lorem
@@ -13,12 +13,12 @@ const About = () => {
             1500s, when an unknown printer took.
           </p>
         </div>
-        <div className="p-2 mt-5">
+        <div className="p-2 mt-5 w-[70%]">
           <img src="/m1.jpg" alt="abt" />
         </div>
       </div>
 
-      <div className=" mt-5  flex  flex-col justify-center items-center text-green-950    pb-32">
+      <div className=" mt-20 md:mt-5  flex  flex-col justify-center items-center ">
         <div className="text-center">
           <h2 className="text-xl font-bold ">ABOUT US</h2>
           <p className="text-xs">
@@ -27,8 +27,8 @@ const About = () => {
           </p>
         </div>
       </div>
-      <div className="  mt-10 flex flex-col justify-center items-center h-96 gap-2 md:flex-row ">
-        <div className="relative rounded-sm  md:w-1/2">
+      <div className=" sm:mt-10 md:mt-4 flex flex-col justify-center items-center h-96 gap-2 md:flex-row ">
+        <div className=" rounded-sm  md:w-1/2">
           {/* Image container with the hover effect */}
           <img
             className="w-full h-full object-cover rounded-sm"
@@ -36,7 +36,7 @@ const About = () => {
             alt="abt"
           />
           {/* Black overlay with opacity on hover */}
-          <div className="absolute inset-0 bg-black opacity-0 hover:opacity-50 transition duration-300 ease-in-out rounded-sm"></div>
+          <div className="absolute inset-0  opacity-0 hover:opacity-50 transition duration-300 ease-in-out rounded-sm"></div>
         </div>
 
         <div className="text-center h-30">

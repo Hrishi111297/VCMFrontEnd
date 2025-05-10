@@ -13,6 +13,18 @@ module.exports = {
           600: "#00001f", // Darker shade
           400: "#22224a", // Lighter shade
         },
+        purpa: {
+          DEFAULT: "#9D00FF",
+          500: "#010127", // Base color
+          600: "#00001f", // Darker shade
+          400: "#22224a", // Lighter shade
+        },
+        gera: {
+          DEFAULT: "#62FF00",
+          500: "#010127", // Base color
+          600: "#00001f", // Darker shade
+          400: "#22224a", // Lighter shade
+        },
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],

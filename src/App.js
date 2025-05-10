@@ -7,12 +7,9 @@ import Achiewments from "./Components/Achiewments";
 import Staff from "./Components/Staff";
 import Footer from "./Components/Footer";
 
-
-
-
 function App() {
   return (
-    <div className="bg-white ">
+    <div className="bg-white text-black">
       <Header />
       <SlideShow />
       <FacilityCards />
