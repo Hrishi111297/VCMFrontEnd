@@ -1,9 +1,21 @@
 import React, { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-
+import { Link, useNavigate } from "react-router-dom";
+import { removeToken } from "../Utils/Auth";
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const [loginhandle, setLoginHandle] = useState("Logout");
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    debugger;
+    if (loginhandle === "Logout") {
+      setLoginHandle(!loginhandle);
+      removeToken();
+      navigate("/login");
+    } else {
+      setLoginHandle("Logout");
+    }
+  };
   return (
     <header className="shadow-md  fixed z-20  w-full bg-white">
       <nav className="px-4 py-2 flex items-center justify-between  ">
@@ -15,17 +27,36 @@ const Header = () => {
 
         {/* Desktop Nav Links */}
         <ul className="hidden md:flex space-x-6 text-sm  font-medium">
-          <li className="hover:underline cursor-pointer">Home</li>
-          <li className="hover:underline cursor-pointer">About</li>
-          <li className="hover:underline cursor-pointer">Services</li>
-          <li className="hover:underline cursor-pointer">Contact</li>
+          <li className="hover:underline cursor-pointer">
+            {" "}
+            <Link to="/">Front Side</Link>
+          </li>
+          <li className="hover:underline cursor-pointer">
+            {" "}
+            <Link to="/dashboard">Home</Link>
+          </li>
+          <li className="hover:underline cursor-pointer">
+            {" "}
+            <Link to="/courses">courses</Link>
+          </li>
+          <li className="hover:underline cursor-pointer">
+            {" "}
+            <Link to="/about">About</Link>
+          </li>
+          <li className="hover:underline cursor-pointer">
+            {" "}
+            <Link to="/staff">Staff</Link>
+          </li>
         </ul>
 
         {/* Auth Links */}
         <div className="hidden md:flex space-x-4 items-center">
-          <a href="#login" className="text-purple-700 hover:underline">
-            Login
-          </a>
+          <button
+            className="text-purple-700 hover:underline"
+            onClick={handleLogin}
+          >
+            {loginhandle}
+          </button>
           <a
             href="#signup"
             className="bg-purple-700 text-white px-4 py-1 rounded hover:bg-purple-800"
@@ -50,14 +81,34 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden  border-t border-gray-200 px-4 py-3 space-y-2">
           <ul className="text-sm space-y-2 ">
-            <li className="hover:underline border-b-2">Home</li>
-            <li className="hover:underline border-b-2">About</li>
-            <li className="hover:underline border-b-2">Services</li>
-            <li className="hover:underlineborder-b-2">Contact</li>
+            <li className="hover:underline border-b-2">
+              {" "}
+              <Link to="/">Front Side</Link>
+            </li>
+            <li className="hover:underline border-b-2">
+              {" "}
+              <Link to="/dashboard">Home</Link>
+            </li>
+            <li className="hover:underline border-b-2">
+              {" "}
+              <Link to="/courses">courses</Link>
+            </li>
+            <li className="hover:underlineborder-b-2">
+              {" "}
+              <Link to="/about">About</Link>
+            </li>
+            <li className="hover:underlineborder-b-2">
+              {" "}
+              <Link to="/staff">Staff</Link>
+            </li>
           </ul>
           <div className="pt-4 border-t border-gray-300 space-y-2">
-            <a href="#login" className="block text-purple-700 hover:underline">
-              Login
+            <a
+              href="#login"
+              onClick={handleLogin}
+              className="block text-purple-700 hover:underline"
+            >
+              {loginhandle}
             </a>
             <a
               href="#signup"
