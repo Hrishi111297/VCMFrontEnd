@@ -2,7 +2,7 @@ import React from "react";
 import ReactModal from "react-modal";
 import Lottie from "lottie-react";
 import LoaderLottie from "../Utils/customHooks/CommonLotties/hrmsLoader.json"
-import { useLoader } from "../Utils/LoaderContext";
+import { useLoader } from "../Context/LoaderContext";
 const Loader = () => {
   const loaderStyle = {
     width: "400px", // Adjust size of the loader

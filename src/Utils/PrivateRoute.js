@@ -3,7 +3,6 @@ import { Navigate } from "react-router-dom";
 import { isTokenValid, removeToken } from "./Auth";
 
 const PrivateRoute = ({ children }) => {
-  debugger;
   const token = localStorage.getItem("token");
 
   if (!isTokenValid(token)) {

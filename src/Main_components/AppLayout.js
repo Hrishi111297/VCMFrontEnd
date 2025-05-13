@@ -1,9 +1,9 @@
 // src/AppLayout.js
 import { Outlet } from "react-router-dom";
-import Header from "../Components/Header";
+import MainHeader from "./MainHeader";
 import Footer from "../Components/Footer";
-import ToastContainerWrapper from "./ToastContainerWrapper";
-import Loader from "./Loader";
+import ToastContainerWrapper from "../Utils/ToastContainerWrapper";
+import Loader from "../Utils/Loader";
 import { useLocation } from "react-router-dom";
 const AppLayout = () => {
     const location = useLocation();
@@ -12,7 +12,7 @@ const AppLayout = () => {
     <Loader />
     {location.pathname !== "/login" &&
         location.pathname !== "/register" &&
-        location.pathname !== "/forgotPass" && <Header />}
+        location.pathname !== "/forgotPass" && <MainHeader />}
       <Outlet />
       <ToastContainerWrapper/>
       {(location.pathname !== "/login" &&

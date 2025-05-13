@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { removeToken } from "../Utils/Auth";
+import { useAuth } from "../Context/AuthContext";
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [loginhandle, setLoginHandle] = useState("Logout");
   const navigate = useNavigate();
+  const { logout } = useAuth();
   const handleLogin = () => {
     debugger;
     if (loginhandle === "Logout") {
       setLoginHandle(!loginhandle);
-      removeToken();
+      logout();
       navigate("/login");
     } else {
       setLoginHandle("Logout");
@@ -33,7 +35,7 @@ const Header = () => {
           </li>
           <li className="hover:underline cursor-pointer">
             {" "}
-            <Link to="/dashboard">Home</Link>
+            <Link to="/main/">Home</Link>
           </li>
           <li className="hover:underline cursor-pointer">
             {" "}
@@ -57,12 +59,12 @@ const Header = () => {
           >
             {loginhandle}
           </button>
-          <a
-            href="#signup"
-            className="bg-purple-700 text-white px-4 py-1 rounded hover:bg-purple-800"
-          >
-            Sign Up
-          </a>
+          <Link
+  to="/register"
+  className="bg-purple-700 text-white px-4 py-1 rounded hover:bg-purple-800"
+>
+  Sign Up
+</Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -87,11 +89,11 @@ const Header = () => {
             </li>
             <li className="hover:underline border-b-2">
               {" "}
-              <Link to="/dashboard">Home</Link>
+              <Link to="/main/">Home</Link>
             </li>
             <li className="hover:underline border-b-2">
               {" "}
-              <Link to="/courses">courses</Link>
+              <Link to="main/courses">courses</Link>
             </li>
             <li className="hover:underlineborder-b-2">
               {" "}
@@ -110,15 +112,16 @@ const Header = () => {
             >
               {loginhandle}
             </a>
-            <a
-              href="#signup"
+            <Link
+              to="/register"
               className="block bg-purple-700 text-white text-center px-4 py-1 rounded hover:bg-purple-800"
             >
               Sign Up
-            </a>
+            </Link>
           </div>
         </div>
       )}
+      
     </header>
   );
 };

@@ -27,7 +27,7 @@ const SlideShow = () => {
         onClick={() => {console.log("left")
           setCurrentIndex((currentIndex - 1 + images.length) % images.length);
         }}
-        className="absolute left-4 bg-gera p-2 text-black rounded-full w-7 h-7 z-50"
+        className="absolute left-4 bg-gera p-2 text-black rounded-full w-7 h-7 "
       >
         <MdKeyboardArrowLeft className="text-sm" />
       </button>
@@ -40,7 +40,7 @@ const SlideShow = () => {
         onClick={() => {
           setCurrentIndex((currentIndex + 1) % images.length);
         }}
-        className="absolute right-4 bg-gera text-black p-2 rounded-full w-7 h-7 z-50"
+        className="absolute right-4 bg-gera text-black p-2 rounded-full w-7 h-7"
       >
         <MdKeyboardArrowRight className="text-sm" />
       </button>
