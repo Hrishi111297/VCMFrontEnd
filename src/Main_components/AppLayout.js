@@ -12,7 +12,9 @@ const AppLayout = () => {
     <Loader />
     {location.pathname !== "/login" &&
         location.pathname !== "/register" &&
-        location.pathname !== "/forgotPass" && <MainHeader />}
+        location.pathname !== "/forgotPass" && location.pathname.startsWith("/main/")&&
+        <MainHeader />
+        }
       <Outlet />
       <ToastContainerWrapper/>
       {(location.pathname !== "/login" &&

@@ -9,7 +9,7 @@ const Loader = () => {
     margin: "0 auto",
   };
  const { isLoading } = useLoader();
-console.log(isLoading)
+
   if (!isLoading) return null;
   return (
     <ReactModal

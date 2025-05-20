@@ -17,6 +17,7 @@ import ForgotPassword from "./Main_components/ForgotPassword";
 import DashboardHome from "./Main_components/Dashboard/DashboardHome";
 import EditProfile from "./Main_components/Profile/EditProfile";
 import { AuthProvider } from "./Context/AuthContext";
+import UpdateProfile from "./Main_components/Profile/UpdateProfile";
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -40,7 +41,7 @@ const appRouter = createBrowserRouter([
         ),
         children: [
           { index: true, element: <DashboardHome /> },
-          { path: "editprofile", element: <EditProfile /> },
+          { path: "editprofile", element: <UpdateProfile /> },
 
           // Submodules
           {
@@ -101,11 +102,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <AuthProvider>
     <LoaderProvider>
-      <RouterProvider router={appRouter} />
+      <AuthProvider>
+        <RouterProvider router={appRouter} />
+      </AuthProvider>
     </LoaderProvider>
-    </AuthProvider>
   </React.StrictMode>
 );
 

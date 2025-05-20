@@ -6,7 +6,7 @@ const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem("token");
 
   if (!isTokenValid(token)) {
-    // Token is invalid or expired, clear the token and redirect to login
+  
     removeToken();
     return <Navigate to="/login" />;
   }

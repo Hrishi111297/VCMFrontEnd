@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useLoader } from "../Context/LoaderContext";
 import useToast from "../Utils/customHooks/useToast";
 import { base_url } from "../Utils/MetaURL";
 import { useAuth } from "../Context/AuthContext";
+
+import { IoHomeOutline } from "react-icons/io5";
 const Login = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [captchaImage, setCaptchaImage] = useState("");
@@ -12,7 +14,7 @@ const Login = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const { showLoader, hideLoader } = useLoader();
-  const {authData, login} = useAuth();
+  const { authData, login } = useAuth();
   useEffect(() => {
     fetchCaptcha();
     localStorage.removeItem("token");
@@ -60,8 +62,8 @@ const Login = () => {
 
       if (response.ok) {
         toast("success", "Login successful!!");
-      login(data);
-      console.log("fsafasf",authData)
+
+        login(data);
         setFormData({ username: "", password: "" });
         setUserCaptchaInput("");
         navigate("/main/");
@@ -82,6 +84,10 @@ const Login = () => {
         className="w-full max-w-sm p-4 sm:p-6 bg-white rounded shadow-md"
         onSubmit={handleSubmit}
       >
+        <Link className="p-3 " to="/">
+          <IoHomeOutline className="text-base text-purple-800" />
+        </Link>
+
         <h2 className="mb-4 text-2xl font-bold text-center">Login</h2>
 
         {/* Username */}

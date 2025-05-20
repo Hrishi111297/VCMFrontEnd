@@ -1,7 +1,6 @@
 // Function to decode JWT and check expiry
-export const isTokenValid = (token) => {
+export const isTokenValid = (token) => {debugger;
   if (!token) return false;
-  debugger;
   try {
     const decodedToken = JSON.parse(atob(token.split(".")[1])); // Decode JWT token
     const expiryTime = decodedToken.exp * 1000; // Expiry is in seconds, so multiply by 1000

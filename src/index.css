@@ -9,5 +9,5 @@
   --color-mint-500: oklch(0.72 0.11 178); /* Custom color */
 }
 body {
-  @apply bg-mint-500 text-white font-poppins; /* Apply globally */
+  @apply   font-poppins; /* Apply globally */
 }

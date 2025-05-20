@@ -22,7 +22,7 @@ const SlideShow = () => {
   }, []);
 
   return (
-    <div className="relative flex items-center  w-full sm:h-60 md:h-80 lg:h-96 xl:h-[32rem] pt-20 p-2  text-white">
+    <div className="relative flex items-center  w-full sm:h-60 md:h-80 lg:h-auto xl:h-[32rem] pt-20 p-2  text-white">
       <button
         onClick={() => {console.log("left")
           setCurrentIndex((currentIndex - 1 + images.length) % images.length);
@@ -34,7 +34,7 @@ const SlideShow = () => {
       <img
         src={images[currentIndex]}
         alt={`Slide ${currentIndex + 1}`}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-fill"
       />
       <button
         onClick={() => {

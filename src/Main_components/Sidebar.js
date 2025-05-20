@@ -30,7 +30,7 @@ const Sidebar = () => {
     { icon: <FaHome />, label: "Home", path: "/main/" },
     ,
     {
-      icon:  <BiAtom />,
+      icon: <BiAtom />,
       label: "Courses",
       path: "/main/courses",
       subItems: [
@@ -42,25 +42,26 @@ const Sidebar = () => {
       icon: <AiOutlineBank />,
       label: "Staff",
       path: "/main/staff",
-      subItems: [
-        { label: "add", path: "/main/staff/add" },
-      ],
+      subItems: [{ label: "add", path: "/main/staff/add" }],
     },
-    { icon: <AiOutlineAreaChart />, label: "Fees", path: "/main/fees",
-      subItems: [
-        { label: "add", path: "/main/fees/add" },
-      ], },
-      { icon: <AiOutlineAreaChart />, label: "Attendance", path: "/main/attendance",
-        subItems: [
-          { label: "add", path: "/main/attendance/add" },
-        ], },
-  
+    {
+      icon: <AiOutlineAreaChart />,
+      label: "Fees",
+      path: "/main/fees",
+      subItems: [{ label: "add", path: "/main/fees/add" }],
+    },
+    {
+      icon: <AiOutlineAreaChart />,
+      label: "Attendance",
+      path: "/main/attendance",
+      subItems: [{ label: "add", path: "/main/attendance/add" }],
+    },
   ];
 
   return (
     <div
-      className={`transition-all duration-700 bg-purple-600 text-white mt-20 ${
-        isCollapsed ? "w-12" : "w-56"
+      className={`transition-all duration-700 bg-purple-600 text-white h-screen mt-20 ${
+        isCollapsed ? "w-12" : "w-40"
       } `}
     >
       <button
@@ -96,7 +97,11 @@ const Sidebar = () => {
                   onClick={() => toggleDropdown(index)}
                   className="ml-2 focus:outline-none"
                 >
-                  {openDropdowns[index] ? <AiOutlineDown /> : <AiOutlineRight />}
+                  {openDropdowns[index] ? (
+                    <AiOutlineDown />
+                  ) : (
+                    <AiOutlineRight />
+                  )}
                 </button>
               )}
             </div>

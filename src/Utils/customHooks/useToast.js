@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { Bounce } from "react-toastify";
 
 const useToast = () => {
-  const showToast = useCallback((type, message, options = {}) => {debugger
+  const showToast = useCallback((type, message, options = {}) => {
     if (["success", "error", "info", "warning"].includes(type)) {
       toast[type](message, {
         position: "bottom-right",
