@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaRegSave } from "react-icons/fa";
 import { CiEdit } from "react-icons/ci";
 import { useAuth } from "../../Context/AuthContext";
@@ -7,21 +7,42 @@ import { useLoader } from "../../Context/LoaderContext";
 import useToast from "../../Utils/customHooks/useToast";
 const PersonalInfoCard = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const { authData, refreshData } = useAuth();
+  const { authData, getData } = useAuth();
   const { showLoader, hideLoader } = useLoader();
   const toast = useToast();
-  const [formData, setFormData] = useState({
-    id: authData.user.DATA.id || "",
-    firstName: authData.user.DATA.firstName || "",
-    middleName: authData.user.DATA.middleName || "",
-    lastName: authData.user.DATA.lastName || "",
-    gender: authData.user.DATA.gender || "",
-    birthDate: authData.user.DATA.birthDate || "",
-    adharNumber: authData.user.DATA.adharNumber || "",
-    bloodGroup: authData.user.DATA.bloodGroup || "",
-    contactNumber: authData.user.DATA.contactNumber || "",
-    emailId: authData.user.DATA.emailId || "",
-  });
+  const initialFormData = {
+    id: "",
+    firstName: "",
+    middleName: "",
+    lastName: "",
+    gender: "",
+    birthDate: "",
+    adharNumber: "",
+    bloodGroup: "",
+    contactNumber: "",
+    emailId: "",
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
+
+  useEffect(() => {
+    if (authData) {
+      const newData = {
+        id: authData.user.DATA.id || "",
+        firstName: authData.user.DATA.firstName || "",
+        middleName: authData.user.DATA.middleName || "",
+        lastName: authData.user.DATA.lastName || "",
+        gender: authData.user.DATA.gender || "",
+        birthDate: authData.user.DATA.birthDate || "",
+        adharNumber: authData.user.DATA.adharNumber || "",
+        bloodGroup: authData.user.DATA.bloodGroup || "",
+        contactNumber: authData.user.DATA.contactNumber || "",
+        emailId: authData.user.DATA.emailId || "",
+      };
+
+      setFormData(newData);
+    }
+  }, [authData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,7 +72,7 @@ const PersonalInfoCard = () => {
 
       if (response.ok) {
         toast("success", "Basic info saved");
-        refreshData();
+        getData();
       } else {
         toast("error", "Failed to save basic info");
       }

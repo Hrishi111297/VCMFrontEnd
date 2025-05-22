@@ -5,8 +5,8 @@ import useToast from "../../Utils/customHooks/useToast";
 import { useLoader } from "../../Context/LoaderContext";
 import BasicInfo from "./BasicInfo";
 import AddressInfo from "./AddressInfo";
-import GuardianInfo from "./GuardianInfo";
-import EducationInfo from "./EducationInfo";
+import GuardianInfo from "./GuardianInfoCard";
+import EducationInfo from "./EducationInfoCard";
 
 const EditProfile = () => {
   const { authData } = useAuth();

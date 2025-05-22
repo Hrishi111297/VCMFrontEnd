@@ -6,7 +6,6 @@ const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem("token");
 
   if (!isTokenValid(token)) {
-  
     removeToken();
     return <Navigate to="/login" />;
   }

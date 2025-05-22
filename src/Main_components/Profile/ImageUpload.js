@@ -4,39 +4,45 @@ import { uploadImage } from "./Services/ImageService";
 import { useAuth } from "../../Context/AuthContext";
 import useToast from "../../Utils/customHooks/useToast";
 import PersonalInfoCard from "./PersonalInfoCard";
+import getProfileImage from "./Util/useProfileImage";
 
 const ImageUpload = () => {
   const [preview, setPreview] = useState(null);
   const fileInputRef = useRef(null);
-  const image = useProfileImage();
-  const toast=useToast();
-  const { authData } = useAuth();
+
+  const toast = useToast();
+  const { authData, getData } = useAuth();
   useEffect(() => {
-    if (image) {
-      setPreview(image);
+    if (authData !== null) {
+      getProfileImage(authData, setPreview);
     }
-  }, [image]);
+  }, [authData]);
 
   const handleImageClick = () => {
     fileInputRef.current.click();
   };
 
-  const handleFileChange = async(event) => {
+  const handleFileChange = async (event) => {
     const file = event.target.files[0];
     if (file && file.type.startsWith("image/")) {
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreview(reader.result);
       };
-      reader.readAsDataURL(file);debugger;
-     let result= await uploadImage(file, authData?.token, authData.user.DATA.id);
+      reader.readAsDataURL(file);
+      let result = await uploadImage(
+        file,
+        authData?.token,
+        authData.user.DATA.id
+      );
+      getData();
 
-     toast(result.type,result.message);
+      toast(result.type, result.message);
     }
   };
 
   return (
-    <div className="p-2 h-full ">
+    <div className="h-full border-r p-4 ">
       <div className=" h-1/5 bg-gray-200 shadow-md  rounded-t-lg flex justify-center">
         <div
           onClick={handleImageClick}
@@ -61,7 +67,9 @@ const ImageUpload = () => {
         </div>
       </div>
       <div className="h-4/5 bg-white rounded-b-lg shadow-md ">
-        <div className="pt-14 md:pt-10 h-full"><PersonalInfoCard/></div>
+        <div className="pt-14 md:pt-10 h-full">
+          <PersonalInfoCard />
+        </div>
       </div>
     </div>
   );

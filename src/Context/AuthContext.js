@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
   const { showLoader, hideLoader } = useLoader();
 
   const fetchProfile = async (token) => {
-debugger;
+    debugger;
     showLoader();
     try {
       const response = await fetch(getUSerDetails, {
@@ -24,13 +24,15 @@ debugger;
       }
 
       const userData = await response.json();
+      console.log("userData", userData);
 
-      setAuthData({
+      const newAuthData = {
         token,
         user: userData,
-      });
-      console.log("login",authData)
-        } catch (error) {
+      };
+      setAuthData(newAuthData);
+      console.log("authData", newAuthData);
+    } catch (error) {
       console.error("Fetch profile error:", error);
       logout();
     } finally {
@@ -40,30 +42,28 @@ debugger;
 
   const login = async (data) => {
     localStorage.setItem("token", data.token);
-      await fetchProfile(data.token);
+    fetchProfile(data.token);
   };
 
   const logout = () => {
     setAuthData(null);
     localStorage.removeItem("token");
   };
- const refreshData = () => {
-   const token = localStorage.getItem("token");
+  const getData = () => {
+    const token = localStorage.getItem("token");
     if (token) {
       fetchProfile(token);
-    } 
-   
+    }
   };
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       fetchProfile(token);
-    } else {
     }
   }, []);
-
   return (
-    <AuthContext.Provider value={{ authData, login, logout,refreshData }}>
+    <AuthContext.Provider value={{ authData, login, logout, getData }}>
       {children}
     </AuthContext.Provider>
   );
