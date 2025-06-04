@@ -24,7 +24,8 @@ const AdressInfoCard = () => {
 
   useEffect(() => {
     if (authData) {
-      const adressdata = authData.user.DATA.addressDto;
+      debugger;
+      const adressdata = authData.user.DATA.addressDto||initialFormData;
       const newData = {
         houseNumber: adressdata.houseNumber || "",
         street: adressdata.street || "",
@@ -114,7 +115,7 @@ const AdressInfoCard = () => {
               type="number"
               id="houseNumber"
               name="houseNumber"
-              value={formData.houseNumber}
+              value={formData.houseNumber || "No data"}
               onChange={handleChange}
               className="mt-1 block w-2/3 px-2 py-1 text-xs border border-gray-300 rounded-md"
             />
@@ -135,7 +136,7 @@ const AdressInfoCard = () => {
               type="text"
               id="street"
               name="street"
-              value={formData.street}
+              value={formData.street || "No data"}
               onChange={handleChange}
               className="mt-1 block w-2/3 px-2 py-1 text-xs border border-gray-300 rounded-md"
             />
@@ -156,7 +157,7 @@ const AdressInfoCard = () => {
               type="text"
               id="city"
               name="city"
-              value={formData.city}
+              value={formData.city || "No data"}
               onChange={handleChange}
               className="mt-1 block w-2/3 px-2 py-1 text-xs border border-gray-300 rounded-md"
             />
@@ -177,7 +178,7 @@ const AdressInfoCard = () => {
               type="text"
               id="state"
               name="state"
-              value={formData.state}
+              value={formData.state || "No data"}
               onChange={handleChange}
               className="mt-1 block w-2/3 px-2 py-1 text-xs border border-gray-300 rounded-md"
             />
@@ -201,7 +202,7 @@ const AdressInfoCard = () => {
               type="text"
               id="pincode"
               name="pincode"
-              value={formData.pincode}
+              value={formData.pincode || "No data"}
               onChange={handleChange}
               className="mt-1 block w-2/3 px-2 py-1 text-xs border border-gray-300 rounded-md"
             />
@@ -225,7 +226,7 @@ const AdressInfoCard = () => {
               type="text"
               id="country"
               name="country"
-              value={formData.country}
+              value={formData.country || "No data"}
               onChange={handleChange}
               className="mt-1 block w-2/3 px-2 py-1 text-xs border border-gray-300 rounded-md"
             />

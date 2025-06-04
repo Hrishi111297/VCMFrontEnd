@@ -24,7 +24,8 @@ const GuardianInfoCard = () => {
 
   useEffect(() => {
     if (authData) {
-      const guardianData = authData.user.DATA.guardianDetailsDto;
+      const guardianData =
+        authData.user.DATA.guardianDetailsDto || initialFormData;
       const newData = {
         name: guardianData.name || "",
         contactNumber: guardianData.contactNumber || "",
@@ -107,7 +108,7 @@ const GuardianInfoCard = () => {
               type="text"
               id="name"
               name="name"
-              value={formData.name}
+              value={formData.name || "No data"}
               onChange={handleChange}
               className="mt-1 block w-2/3 px-2 py-1 text-xs border border-gray-300 rounded-md"
             />
@@ -131,7 +132,7 @@ const GuardianInfoCard = () => {
               type="text"
               id="contactNumber"
               name="contactNumber"
-              value={formData.contactNumber}
+              value={formData.contactNumber || "No data"}
               onChange={handleChange}
               className="mt-1 block w-2/3 px-2 py-1 text-xs border border-gray-300 rounded-md"
             />
@@ -155,7 +156,7 @@ const GuardianInfoCard = () => {
               type="text"
               id="relationship"
               name="relationship"
-              value={formData.relationship}
+              value={formData.relationship || "No data"}
               onChange={handleChange}
               className="mt-1 block w-2/3 px-2 py-1 text-xs border border-gray-300 rounded-md"
             />

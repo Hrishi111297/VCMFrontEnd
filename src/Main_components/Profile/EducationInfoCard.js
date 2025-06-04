@@ -6,7 +6,7 @@ import { useAuth } from "../../Context/AuthContext";
 import { base_url } from "../../Utils/MetaURL";
 import { useLoader } from "../../Context/LoaderContext";
 import useToast from "../../Utils/customHooks/useToast";
-const EducationSection = () => {
+const  EducationSection = () => {
   const { authData, getData } = useAuth();
   const { showLoader, hideLoader } = useLoader();
   const toast = useToast();
@@ -19,9 +19,7 @@ const EducationSection = () => {
       const educationData = authData.user.DATA.educationDetailsDto || [];
       setEducationList(educationData);
     }
-    {
-      console.log(educationList);
-    }
+   
   }, [authData]);
 
   const handleChange = (e, id) => {
